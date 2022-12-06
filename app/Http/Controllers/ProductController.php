@@ -13,7 +13,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        //Motrar el listado de nuestros productos agregados
+        $productos = Product::all();
+
+        return view('product.index')->with('products',$productos);
+
     }
 
     /**
@@ -35,10 +39,10 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //Logica para almacenar nuestro nueveo elemento
-        $entrada = $request->all();   // obteniendo los valores enviados x el formulario
-        Product::create($entrada);
-        return redirect('products');
+        //Logica para almacenar nuestro nuevo elemento
+        $entrada = $request->all();    // obteniendo los valores enviados x el formulario
+        Product::create($entrada);    //  logica para crear un nuevo producto 
+        return redirect('products'); // para enviar al usuario al listado de productos
     }
 
     /**
@@ -49,7 +53,9 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        //me va a buscar el producto que cumpla con ese id
+        $producto = Product::find($id);
+        return view('product.show')->with('product',$producto);
     }
 
     /**

@@ -1,6 +1,5 @@
 <h1>Crear producto</h1>
-
-<hr/>
+<p>Complete los datos para agregar un producto</p>
 
 <form method="POST" action="{{url('products')}}">
     {!! csrf_field() !!}
@@ -18,4 +17,3 @@
 </form>
 
 
-<p>Complete los datos para agregar un producto</p>
