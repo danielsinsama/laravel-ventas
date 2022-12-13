@@ -66,7 +66,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $producto = Product::find($id);
+        return view('product.edit')->with('producto',$producto);
     }
 
     /**
@@ -78,7 +79,10 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $producto= Product::find($id);
+        $entrada = $request->all(); //obtengo los valores que se han enviado por el formulario
+        $producto->update($entrada); // eloquent: modicando producto, indicando los nuevos valores
+        return redirect('products');  // devolviendo al listado
     }
 
     /**
@@ -89,6 +93,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Product::destroy($id); // Eloquent
+        return redirect('products'); //al listado
     }
 }
