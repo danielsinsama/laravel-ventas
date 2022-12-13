@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SalesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,3 +23,6 @@ Route::get('/quienes-somos', function () {
 });
 
 Route::resource('/products',ProductController::class);
+
+Route::get('/sales',[SalesController::class,'sell']);
+Route::post('/sales-search',[SalesController::class,'search']);
