@@ -4,7 +4,11 @@
 
 @section('contenido')
 <p>Listado de los productos agregados</p>
-
+@if(count($products)>5)
+    <p>Tienes muchos productos</p>
+@else
+    <p>Tienes pocos productos</p>
+@endif
 <table class="table">
     <!-- Fila   : table row -->
     <tr>
