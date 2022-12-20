@@ -35,7 +35,7 @@ class SalesController extends Controller
     public function removeItemCart($id){
         $carrito = session('carrito'); # traerme carrito de la sesion
         $carrito->removeToCart($id);
-        session(['carrito'=>$carrito]);
+        session(['carrito'=>$carrito]); ### actualizando sesion : carrito
         return redirect('sell');
     }
 }
