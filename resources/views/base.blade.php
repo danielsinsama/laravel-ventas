@@ -22,6 +22,9 @@
         <li class="nav-item">
           <a class="nav-link" href="{{url('sell')}}">Vender</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url('sales-list')}}">Ventas</a>
+        </li>
       </ul>
     </div>
   </div>

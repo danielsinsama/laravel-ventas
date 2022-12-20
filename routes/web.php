@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SalesController;
+use App\Http\Controllers\SalesListController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,3 +32,5 @@ Route::post('/add-to-cart',[SalesController::class,'addToCart']);
 Route::put('/delete-product-cart/{product}',[SalesController::class,'removeItemCart']);
 
 Route::put('/end-sale',[SalesController::class,'endSale']);
+
+Route::get('/sales-list',[SalesListController::class,'salesList']);
