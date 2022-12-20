@@ -25,4 +25,7 @@ Route::get('/quienes-somos', function () {
 Route::resource('/products',ProductController::class);
 
 Route::get('/sell',[SalesController::class,'sell']);
-Route::post('/sales-search',[SalesController::class,'search']);
+
+Route::post('/add-to-cart',[SalesController::class,'addToCart']);
+
+Route::put('/delete-product-cart/{product}',[SalesController::class,'removeItemCart']);
