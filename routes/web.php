@@ -24,5 +24,5 @@ Route::get('/quienes-somos', function () {
 
 Route::resource('/products',ProductController::class);
 
-Route::get('/sales',[SalesController::class,'sell']);
+Route::get('/sell',[SalesController::class,'sell']);
 Route::post('/sales-search',[SalesController::class,'search']);
