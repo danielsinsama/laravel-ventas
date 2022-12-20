@@ -29,3 +29,5 @@ Route::get('/sell',[SalesController::class,'sell']);
 Route::post('/add-to-cart',[SalesController::class,'addToCart']);
 
 Route::put('/delete-product-cart/{product}',[SalesController::class,'removeItemCart']);
+
+Route::put('/end-sale',[SalesController::class,'endSale']);

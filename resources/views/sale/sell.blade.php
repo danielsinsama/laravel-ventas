@@ -51,5 +51,12 @@
         <div>
             Total a pagar: {{$total}}
         </div>
+        <div class="mt-4">
+            <form method="POST" action="{{url('end-sale')}}">
+                @csrf
+                @method('put')
+                <button class="btn btn-dark">Finalizar venta</button>
+            </form>
+        </div>
     @endif
 @endsection

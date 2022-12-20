@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Sale;
+use App\Models\SoldProduct;
 use App\Classes\Cart;
 
 class SalesController extends Controller
@@ -36,6 +38,35 @@ class SalesController extends Controller
         $carrito = session('carrito'); # traerme carrito de la sesion
         $carrito->removeToCart($id);
         session(['carrito'=>$carrito]); ### actualizando sesion : carrito
+        return redirect('sell');
+    }
+
+    public function endSale(Request $req){
+
+        $carrito = session('carrito');
+
+        $items = $carrito->items;
+        $total = $carrito->total;
+
+        $sale = Sale::create(['total'=>$total]);
+
+        if($sale){
+            foreach ($items as $productItem) {
+                SoldProduct::create(
+                    [
+                        'quantity'=> $productItem->cantidad,
+                        'productId'=> $productItem->id ,
+                        'saleId'=> $sale->id
+                    ]
+                );
+            }
+
+        }
+
+        #### cuando se finalice todo
+        $carrito = new Cart();
+
+        session(['carrito'=>$carrito]);
         return redirect('sell');
     }
 }
