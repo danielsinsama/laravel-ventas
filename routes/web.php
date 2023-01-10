@@ -34,3 +34,6 @@ Route::put('/delete-product-cart/{product}',[SalesController::class,'removeItemC
 Route::put('/end-sale',[SalesController::class,'endSale']);
 
 Route::get('/sales-list',[SalesListController::class,'salesList']);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

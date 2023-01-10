@@ -10,7 +10,14 @@ use App\Classes\Cart;
 
 class SalesController extends Controller
 {
-    //
+    
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     public function sell(Request $req){
         $carrito =  $req->session()->get('carrito');
         if(!$carrito){
