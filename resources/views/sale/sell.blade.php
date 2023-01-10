@@ -1,9 +1,8 @@
-@extends('base')
+@extends('layouts.app')
 
-@section('titulo','Vender')
-@section('titular','Vender')
-
-@section('contenido')
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
     <form method="POST" action="{{url('add-to-cart')}}">
         @csrf
         <label>Buscar producto a vender</label>
@@ -59,4 +58,6 @@
             </form>
         </div>
     @endif
+    </div>
+</div>
 @endsection

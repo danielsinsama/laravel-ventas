@@ -1,9 +1,8 @@
-@extends('base')
+@extends('layouts.app')
 
-@section('titulo','Ventas')
-@section('titular','Lista de Ventas')
-
-@section('contenido')
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
     <table class="table">
         <thead class="table-dark">
             <th>Id</th>
@@ -53,4 +52,7 @@
             @endforeach
         </tbody>
     </table>
+    </div>
+</div>
 @endsection
+

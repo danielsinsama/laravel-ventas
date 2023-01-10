@@ -1,9 +1,12 @@
-@extends('base')
-@section('titulo','Listar productos')
-@section('titular','Listar productos')
+@extends('layouts.app')
 
-@section('contenido')
-<p>Listado de los productos agregados</p>
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <h1>
+            Listado de productos
+        </h1>
+        <p>Listado de los productos agregados</p>
 @if(count($products)>5)
     <p>Tienes muchos productos</p>
 @else
@@ -57,4 +60,7 @@
         </tr>
     @endforeach
 </table>
+    </div>
+</div>
 @endsection
+
