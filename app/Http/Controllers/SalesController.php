@@ -59,9 +59,15 @@ class SalesController extends Controller
                         'saleId'=> $sale->id
                     ]
                 );
+
+                $product = Product::find($productItem->id);
+                $product->update( ["stock"=>$product->stock - $productItem->cantidad ] );
+
             }
 
         }
+
+
 
         #### cuando se finalice todo
         $carrito = new Cart();
