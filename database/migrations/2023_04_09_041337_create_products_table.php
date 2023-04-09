@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('nombre',50);
             $table->string('descripcion',100);
             $table->integer('stock');
+            $table->unsignedBigInteger('categoryId');
+            $table->foreign('categoryId')->references('id')->on('categories');
             $table->timestamps();
         });
     }
