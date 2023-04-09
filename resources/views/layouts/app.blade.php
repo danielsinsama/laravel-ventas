@@ -53,6 +53,10 @@
                         @else
                             <li class="nav-item">
                                 <!-- en else, agregamos las opciones del usuario logueado -->
+                                <a class="nav-link" href="{{url('categories')}}">Categorías</a>
+                            </li>
+                            <li class="nav-item">
+                                <!-- en else, agregamos las opciones del usuario logueado -->
                                 <a class="nav-link" href="{{url('products')}}">Productos</a>
                             </li>
                             <li class="nav-item">

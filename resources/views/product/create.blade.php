@@ -8,6 +8,12 @@
         </h1>
         <form method="POST" action="{{url('products')}}">
             {!! csrf_field() !!}
+            <select class="form-select" name="categoryId">
+                @foreach($categories as $category)
+                    <option value="{{$category->id}}"> {{$category->name}}  </option>
+                @endforeach
+            </select>
+            <br/>
             <input  class="form-control" placeholder="Precio venta"  type="number" step="any" name="precioventa"/>
             <br/>
             <input  class="form-control" placeholder="Precio compra"  type="number" step="any"name="preciocompra"/>

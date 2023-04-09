@@ -12,9 +12,18 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+     public function __construct()
+     {
+         $this->middleware('auth');
+     }
+
     public function index()
     {
         //
+        $categories = Category::all();
+        return view('category.index')->with('categories',$categories);
     }
 
     /**
@@ -24,7 +33,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('category.create');
     }
 
     /**
@@ -35,7 +44,9 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $entrada = $request->all();    
+        Category::create($entrada);   
+        return redirect('categories'); 
     }
 
     /**
@@ -44,7 +55,7 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show($id)
     {
         //
     }
@@ -55,9 +66,11 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
         //
+        $categoria = Category::find($id);
+        return view('category.edit')->with('categoria',$categoria);
     }
 
     /**
@@ -67,9 +80,12 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $id)
     {
-        //
+        $categoria= Category::find($id);
+        $entrada = $request->all(); //obtengo los valores que se han enviado por el formulario
+        $categoria->update($entrada); // eloquent: modicando producto, indicando los nuevos valores
+        return redirect('categories');  // devolviendo al listado
     }
 
     /**
@@ -78,8 +94,10 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
         //
+        Category::destroy($id); // Eloquent
+        return redirect('categories'); //al listado
     }
 }

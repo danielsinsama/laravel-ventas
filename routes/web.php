@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SalesController;
 use App\Http\Controllers\SalesListController;
 /*
@@ -24,6 +25,7 @@ Route::get('/quienes-somos', function () {
 });
 
 Route::resource('/products',ProductController::class);
+Route::resource('/categories',CategoryController::class);
 
 Route::get('/sell',[SalesController::class,'sell']);
 
