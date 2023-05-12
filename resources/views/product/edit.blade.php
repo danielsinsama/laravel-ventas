@@ -7,6 +7,11 @@
     <form method="POST" action="{{url('products'.'/'.$producto->id)}}">
         {!! csrf_field() !!}
         @method('patch')
+        <select class="form-select" name="categoryId" >
+                @foreach($categories as $category)
+                    <option value="{{$category->id}}"> {{$category->name}}  </option>
+                @endforeach
+            </select>
         <label>Precio venta</label><br/><input  value="{{$producto->precioventa}}"  class="form-control" placeholder="Precio venta"  type="number" step="any" name="precioventa"/><br/>
         <label>Precio compra</label><br/><input  value="{{$producto->preciocompra}}"  class="form-control" placeholder="Precio compra"  type="number" step="any"name="preciocompra"/><br/>
         <label>Stock</label><br/><input  value="{{$producto->stock}}"  class="form-control" placeholder="Stock"  type="number" name="stock"/><br/>
